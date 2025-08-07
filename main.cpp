@@ -25,10 +25,9 @@ int main()
         cout<< "$";
         getline(cin,linea); //si captura toda la linea de texto
 
-        cmd = aMinusculas(cmd);
-        
         istringstream iss(linea);
         string cmd; // Se separa el comando de los parametros y se guarda en la variable cmd
+        cmd = aMinusculas(cmd);
         iss>> cmd;
         int numParametros = -1;
         string primerParametro;
