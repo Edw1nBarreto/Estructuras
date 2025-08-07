@@ -93,8 +93,9 @@ int main()
 
         //darle las opciones al los if del menú
 
-        if(comando == AYUDA)
+        switch (comando)  // Cambiado a switch p
         {
+        case AYUDA:
             cout<<"------------------AYUDA------------------"<<endl;
             cout<<"Usted ha solicitado ayuda."<<endl;
             cout<<"Comandos disponibles:" << endl;
@@ -111,15 +112,16 @@ int main()
             cout<<"- base_remota" << endl;
             cout<<"- salir" << endl;
             cout<<"----------------FIN AYUDA----------------"<<endl<<endl;
-        }
-        
-        //que ahora si termine el programa cuando se ingrese el comando salir
-        if (comando == SALIR)
-        {
+            break;
+
+        case SALIR:
             cout<<"------------------SALIR------------------"<<endl;
             cout<<"Usted ha solicitado salir del programa."<<endl;
             cout<<"Saliendo del programa..."<<endl;
-            break; // Salir del bucle si el comando es SALIR
+            break;
+        
+        default:
+            break;
         }
 
         //cout<<"Este es el comando seleccionado:" <<comando<<endl;
