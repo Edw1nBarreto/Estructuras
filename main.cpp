@@ -32,7 +32,6 @@ int main()
         int numParametros = -1;
         string primerParametro;
         iss >> primerParametro; //Utilizado para comando "ayuda por comando"
-        primerParametro = aMinusculas(primerParametro);
         istringstream iss2(linea);
         string  temp;
         while(iss2 >> temp)
@@ -72,6 +71,7 @@ int main()
                     }
                     else if (numParametros == 1)
                     {
+                        primerParametro = aMinusculas(primerParametro);
                         Comandos comandoAyuda = procesamiento(primerParametro);
                         if(comandoAyuda != INVALIDO)
                         {
