@@ -245,9 +245,11 @@ int main()
                 exit(1);
 
             default:
+                cout << "------------------ERROR------------------" <<endl;
+                cout << "Comando no valido. Escriba 'ayuda' para ver los comandos disponibles." << endl;
+                cout << "---------------FIN ERROR----------------" << endl << endl;
                 break;
             }
-
             //cout<<"Este es el comando seleccionado:" <<comando<<endl;
     }
     return 0;
