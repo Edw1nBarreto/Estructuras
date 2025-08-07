@@ -1,8 +1,15 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <algorithm>
 #include "comandos.h"
 using namespace std;
+
+string aMinusculas(const string& texto) {
+    string resultado = texto;
+    transform(resultado.begin(), resultado.end(), resultado.begin(), ::tolower);
+    return resultado;
+}
 
 int main()
 {
