@@ -1,1 +1,130 @@
+Hay 3 archivos; comandos.h comandos.cxx y main.cxx
+
+----------------------comandos.h-----------------------------------
+#ifndef COMANDOS_H
+#define COMANDOS_H
+#include <string>
+
+using namespace std;
+
+enum Comandos  //Un tipo de estructura de constantes, en este caso, el nombre de los comandos
+{//enum enumera xd
+    AYUDA, //0
+    CARGAR, //1
+    LISTAR_SECUENCIAS, //2
+    HISTOGRAMA, //3
+    ES_SUBSECUENCIA, //4
+    ENMASCARAR, //5
+    GUARDAR, //6
+    CODIFICAR, //7
+    DECODIFICAR, //8
+    RUTA_MAS_CORTA, //9
+    BASE_REMOTA, //10
+    SALIR, //11
+    INVALIDO //12
+};
+
+Comandos procesamiento (string cmd);
+
+ #endif // COMANDOS_H
+----------------------comandos.h-----------------------------------
+
+-----------------------comandos.cxx--------------------------------
+#include "comandos.h"
+
+Comandos procesamiento(string linea)
+{ //Esta funcion recibe una linea de texto y devuelve el comando correspondiente
+    if(linea == "ayuda") 
+        return AYUDA;
+    if(linea == "cargar") 
+        return CARGAR;
+    if(linea == "listar_secuencias") 
+        return LISTAR_SECUENCIAS;
+    if(linea == "histograma") 
+        return HISTOGRAMA;
+    if(linea == "es_subsecuencia") 
+        return ES_SUBSECUENCIA;
+    if(linea == "enmascarar") 
+        return ENMASCARAR;
+    if(linea == "guardar") 
+        return GUARDAR;
+    if(linea == "codificar") 
+        return CODIFICAR;
+    if(linea == "decodificar") 
+        return DECODIFICAR;
+    if(linea == "ruta_mas_corta") 
+        return RUTA_MAS_CORTA;
+    if(linea == "base_remota") 
+        return BASE_REMOTA;
+    if(linea == "salir") 
+        return SALIR;
+
+    return INVALIDO;
+}
+-----------------------comandos.cxx--------------------------------
+
+-----------------------main.cxx-----------------------------------
+#include <iostream>
+#include <sstream>
+#include <string>
+
+#include "comandos.h"
+
+using namespace std;
+int main()
+{
+    string linea;
+    cout << "------------------SISTEMA DE MANIPULACION DE CADENAS DE ADN FASTA------------------" << endl;
+    cout << "Escriba 'ayuda' para ver los comandos disponibles." << endl;
+    
+
+    while (true) // Asegurarse de que salga del ciclo solo cuando se ingrese el comando salir
+    {
+        cout << "Ingrese un comando: " << endl;
+        cout<< "$"<<endl;
+        getline(cin,linea); //si captura toda la linea de texto
+
+        istringstream iss(linea);
+        string cmd; // Se separa el comando de los parametros y se guarda en la variable cmd
+        iss>> cmd;
+
+        Comandos comando = procesamiento(cmd);
+
+        //darle las opciones al los if del menú
+
+        if(comando == AYUDA)
+        {
+            cout<<"------------------AYUDA------------------"<<endl;
+            cout<<"Usted ha solicitado ayuda."<<endl;
+            cout<<"Comandos disponibles:" << endl;
+            cout<<"- ayuda" << endl;
+            cout<<"- cargar" << endl;
+            cout<<"- listar_secuencias" << endl;
+            cout<<"- histograma" << endl;
+            cout<<"- es_subsecuencia" << endl;
+            cout<<"- enmascarar" << endl;
+            cout<<"- guardar" << endl;
+            cout<<"- codificar" << endl;
+            cout<<"- decodificar" << endl;
+            cout<<"- ruta_mas_corta" << endl;
+            cout<<"- base_remota" << endl;
+            cout<<"- salir" << endl;
+            cout<<"----------------FIN AYUDA----------------"<<endl<<endl;
+        }
+        
+        //que ahora si termine el programa cuando se ingrese el comando salir
+        if (comando == SALIR)
+        {
+            cout<<"------------------SALIR------------------"<<endl;
+            cout<<"Usted ha solicitado salir del programa."<<endl;
+            cout<<"Saliendo del programa..."<<endl;
+            break; // Salir del bucle si el comando es SALIR
+        }
+
+        //cout<<"Este es el comando seleccionado:" <<comando<<endl;
+    }
+    return 0;
+}
+-----------------------main.cxx-----------------------------------
+
 
