@@ -63,6 +63,7 @@ int main()
                     }
                     else if (numParametros == 1)
                     {
+                        primerParametro = aMinusculas(primerParametro);
                         Comandos comandoAyuda = procesamiento(primerParametro);
                         if(comandoAyuda != INVALIDO)
                         {
