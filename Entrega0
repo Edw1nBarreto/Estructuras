@@ -178,7 +178,7 @@ int main()
             cout<<"------------------SALIR------------------"<<endl;
             cout<<"Usted ha solicitado salir del programa."<<endl;
             cout<<"Saliendo del programa..."<<endl;
-            break;
+            return 0;
         
         default:
             break;
