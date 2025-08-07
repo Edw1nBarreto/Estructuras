@@ -114,6 +114,66 @@ int main()
             cout<<"----------------FIN AYUDA----------------"<<endl<<endl;
             break;
 
+        case CARGAR:
+            cout<<"------------------CARGAR------------------"<<endl;
+            cout<<"Usted ha solicitado cargar una secuencia de ADN (FASTA)"<<endl;
+            cout<<"---------------FIN CARGAR----------------"<<endl<<endl;
+            break;
+
+        case LISTAR_SECUENCIAS:
+            cout<<"------------------LISTAR SECUENCIAS------------------"<<endl;
+            cout<<"Usted ha solicitado listar las secuencias de ADN"<<endl;
+            cout<<"---------------FIN LISTAR SECUENCIAS----------------"<<endl<<endl;
+            break;
+
+        case HISTOGRAMA:
+            cout<<"------------------HISTOGRAMA------------------"<<endl;
+            cout<<"Usted ha solicitado generar un histograma"<<endl;
+            cout<<"---------------FIN HISTOGRAMA----------------"<<endl<<endl;
+            break;
+
+        case ES_SUBSECUENCIA:
+            cout<<"------------------ES SUBSECUENCIA------------------"<<endl;
+            cout<<"Usted ha solicitado verificar si una secuencia es subsecuencia de otra"<<endl;
+            cout<<"---------------FIN ES SUBSECUENCIA----------------"<<endl<<endl;
+            break;
+
+        case ENMASCARAR:
+            cout<<"------------------ENMASCARAR------------------"<<endl;
+            cout<<"Usted ha solicitado enmascarar una secuencia de ADN"<<endl;
+            cout<<"---------------FIN ENMASCARAR----------------"<<endl<<endl;
+            break;
+
+        case GUARDAR:
+            cout<<"------------------GUARDAR------------------"<<endl;
+            cout<<"Usted ha solicitado guardar una secuencia de ADN"<<endl;
+            cout<<"---------------FIN GUARDAR----------------"<<endl<<endl;
+            break;
+
+        case CODIFICAR:
+            cout<<"------------------CODIFICAR------------------"<<endl;
+            cout<<"Usted ha solicitado codificar una secuencia de ADN"<<endl;
+            cout<<"---------------FIN CODIFICAR----------------"<<endl<<endl;
+            break;
+
+        case DECODIFICAR:
+            cout<<"------------------DECODIFICAR------------------"<<endl;
+            cout<<"Usted ha solicitado decodificar una secuencia de ADN"<<endl;
+            cout<<"---------------FIN DECODIFICAR----------------"<<endl<<endl;
+            break;
+
+        case RUTA_MAS_CORTA:
+            cout<<"------------------RUTA MAS CORTA------------------"<<endl;
+            cout<<"Usted ha solicitado encontrar la ruta más corta entre dos secuencias de ADN"<<endl;
+            cout<<"---------------FIN RUTA MAS CORTA----------------"<<endl<<endl;
+            break;
+
+        case BASE_REMOTA:
+            cout<<"------------------BASE REMOTA------------------"<<endl;
+            cout<<"Usted ha solicitado acceder a una base de datos remota"<<endl;
+            cout<<"---------------FIN BASE REMOTA----------------"<<endl<<endl;
+            break;
+
         case SALIR:
             cout<<"------------------SALIR------------------"<<endl;
             cout<<"Usted ha solicitado salir del programa."<<endl;
