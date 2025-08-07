@@ -81,8 +81,9 @@ int main()
     while (true) // Asegurarse de que salga del ciclo solo cuando se ingrese el comando salir
     {
         cout << "Ingrese un comando: " << endl;
-        cout<< "$"<<endl;
+        cout<< "$";
         getline(cin,linea); //si captura toda la linea de texto
+        cout<<endl;
 
         istringstream iss(linea);
         string cmd; // Se separa el comando de los parametros y se guarda en la variable cmd
