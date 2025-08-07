@@ -70,7 +70,7 @@ int main()
                             mostrarAyudaComando(comandoAyuda);
                         } 
                         else {
-                            cout << "ERROR: '" << primerParametro << "' no es un comando válido." << endl;
+                            cout << "ERROR: '" << primerParametro << "' no es un comando valido." << endl;
                             cout << "Use 'ayuda' para ver todos los comandos disponibles." << endl;
                         }
                     }
@@ -210,7 +210,7 @@ int main()
                     if(numParametros == 5)
                     {
                         cout<<"------------------RUTA MAS CORTA------------------"<<endl;
-                        cout<<"Usted ha solicitado encontrar la ruta más corta entre dos secuencias de ADN"<<endl;
+                        cout<<"Usted ha solicitado encontrar la ruta mas corta entre dos secuencias de ADN"<<endl;
                         //Llamar a la funcion que encuentra la ruta más corta entre dos secuencias de ADN
                         cout<<"---------------FIN RUTA MAS CORTA----------------"<<endl<<endl;
                     }
