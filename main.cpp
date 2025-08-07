@@ -27,8 +27,8 @@ int main()
 
         istringstream iss(linea);
         string cmd; // Se separa el comando de los parametros y se guarda en la variable cmd
-        cmd = aMinusculas(cmd);
         iss>> cmd;
+        cmd = aMinusculas(cmd);
         int numParametros = -1;
         string primerParametro;
         iss >> primerParametro; //Utilizado para comando "ayuda por comando"
