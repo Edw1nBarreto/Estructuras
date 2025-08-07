@@ -154,11 +154,11 @@ void mostrarAyudaComando(Comandos comando) {
             break;
         case BASE_REMOTA:
             cout << "COMANDO: base_remota" << endl;
-            cout << "DESCRIPCIÓN: Para la base ubicada en la posición [i ,j ] de la matriz de la secuencia descripcion_secuencia ,
-                    el comando busca la ubicación de la misma base (misma letra) más lejana dentro de la matriz. Para esta
-                    base remota, el comando debe imprimir en pantalla su ubicación, la secuencia de vértices (bases) que
-                    describen la ruta entre la base origen y la base remota, y el costo total de la ruta, teniendo en cuenta
-                    el peso que tiene cada conexión entre bases." << endl;
+            cout << "DESCRIPCIÓN: Para la base ubicada en la posición [i ,j ] de la matriz de la secuencia descripcion_secuencia,"
+                    "el comando busca la ubicación de la misma base (misma letra) más lejana dentro de la matriz. Para esta"
+                    "base remota, el comando debe imprimir en pantalla su ubicación, la secuencia de vértices (bases) que"
+                    "describen la ruta entre la base origen y la base remota, y el costo total de la ruta, teniendo en cuenta"
+                    "el peso que tiene cada conexión entre bases." << endl;
             cout << "SINTAXIS: base_remota descripcion_secuencia i j" << endl;
             cout << "EJEMPLO: base_remota buscar NCBI_ID" << endl;
             break;
