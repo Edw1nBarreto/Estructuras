@@ -1,1 +1,26 @@
-
+/**
+ * @brief Checks if the current set is a subset of another.
+ * @param other The set to compare against.
+ * @return True if current set is subset of other, false otherwise.
+ */
+template <typename T>
+bool DataSet<T>::isSubsetOf(const DataSet<T> &other) const
+{
+    // TODO #07: Implementar la verificación de subconjunto (isSubsetOf)
+    // Esta función debe determinar si el conjunto actual es subconjunto del conjunto `other`.
+    // Es decir, debe retornar true si todos los elementos del conjunto actual están presentes
+    // en el conjunto `other`. En caso contrario, debe retornar false.
+    //
+    // Esta operación no debe modificar ninguno de los conjuntos involucrados.
+    // El resultado debe respetar la definición formal de subconjunto: A ⊆ B.
+    
+    for(const T &elemento : elements)
+    {
+        if(!other.contains(elemento))
+        {
+            std::cout<<"El elemento "<<elemento<<" no está en el conjunto "<<other.getName()<<std::endl;
+            return false; //si algún elemento del conjunto actual no está en el otro, no es subconjunto
+        }
+    }
+    return true;
+}
