@@ -1,1 +1,16 @@
-
+/**
+ * @brief Inserts a value into the set only if it's not already present.
+ * @param value The element to insert.
+ */
+template <typename T>
+void DataSet<T>::insert(const T &value)
+{
+    // TODO #02: Implementar la función insert
+    // Esta función debe insertar un nuevo valor en el conjunto solo si dicho valor
+    // aún no se encuentra presente. Para ello, debe invocar la función contains()
+    // previamente implementada. Si el valor no está presente, se debe agregar al conjunto 
+    // No se permite insertar elementos duplicados bajo ninguna circunstancia.
+    // La función debe mantener la semántica de conjunto: todos los elementos únicos.
+   if(!contains(value))
+    elements.push_back(value);
+}
