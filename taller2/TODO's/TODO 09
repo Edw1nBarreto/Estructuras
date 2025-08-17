@@ -1,0 +1,15 @@
+/**
+ * @brief Returns the number of elements in the set.
+ * @return The size of the set.
+ */
+template <typename T>
+size_t DataSet<T>::size() const
+{
+    // TODO #09: Implementar la función size()
+    // Esta función debe retornar la cantidad total de elementos almacenados en el conjunto actual.
+    // No se deben realizar recorridos ni contadores manuales.
+    //
+    // el número de elementos únicos contenidos en el conjunto.
+
+    return elements.size(); //ya que no toca hacer recorridos ni contadores manuales (además literalmente existe ya xd)
+}
