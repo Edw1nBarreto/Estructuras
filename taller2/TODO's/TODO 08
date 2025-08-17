@@ -1,0 +1,25 @@
+/**
+ * @brief Checks if the current set is equal to another.
+ * @param other The set to compare against.
+ * @return True if both sets contain the same elements.
+ */
+template <typename T>
+bool DataSet<T>::isEqualTo(const DataSet<T> &other) const
+{
+    if(this->isSubsetOf(other) == true && other.isSubsetOf(*this) == true)
+    {
+        return true;
+    }
+    else   
+        return false;
+    // TODO #08: Implementar la verificación de igualdad entre conjuntos (isEqualTo)
+    // Esta función debe retornar true si ambos conjuntos contienen exactamente los mismos elementos,
+    // sin importar el orden. Es decir, si A = B en términos de contenido.
+    //
+    // Para ello, puede utilizar la propiedad matemática de doble inclusión:
+    // A = B ⇔ (A ⊆ B) ∧ (B ⊆ A)
+    //
+    // Se deben usar las funciones ya implementadas: isSubsetOf()
+    // La función no debe modificar ninguno de los conjuntos.
+    // El resultado debe reflejar igualdad lógica entre conjuntos, no igualdad estructural interna.
+}
