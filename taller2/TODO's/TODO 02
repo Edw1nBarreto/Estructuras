@@ -11,6 +11,6 @@ void DataSet<T>::insert(const T &value)
     // previamente implementada. Si el valor no está presente, se debe agregar al conjunto 
     // No se permite insertar elementos duplicados bajo ninguna circunstancia.
     // La función debe mantener la semántica de conjunto: todos los elementos únicos.
-   if(!contains(value))
-    elements.push_back(value);
+   if(!contains(value)) //si retorna un false
+    elements.push_back(value); //inserta el nuevo valor atrás en el conjunto
 }
