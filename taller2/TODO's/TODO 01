@@ -1,1 +1,25 @@
-
+/**
+ * @brief Checks if the set contains a specific value.
+ * @param value The value to check. ¿está el valor value de tipo T?
+ * @return True if the value is present, false otherwise.
+ */
+template <typename T>
+bool DataSet<T>::contains(const T &value) const //el parámetro lo pasa por referencia constante (evitar copias), const evita modificaciones
+{
+    // TODO #01: Implementar la función contains
+    // Esta función debe verificar si un elemento dado está presente en el conjunto actual.
+    // Para ello, debe recorrer la estructura lineal interna 
+    // y determinar si existe un elemento que sea igual al valor recibido por parámetro.
+    // No se permite modificar la estructura ni usar contenedores auxiliares.
+    // El valor de retorno debe ser true si el elemento existe, false en caso contrario.
+    for(const T &elemento : elements) //recorre el vector de elementos
+    {
+        if (elemento == value) //compara el elemento actual con el valor buscado
+        {
+            cout<<"El elemento "<<value<<" está en el conjunto"<<endl;
+            return true; //si encuentra el valor, retorna true
+        }
+    }
+    cout<<"El elemento "<<value<<" no está en el conjunto"<<endl;
+    return false;
+}
