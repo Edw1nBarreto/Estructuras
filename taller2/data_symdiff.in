@@ -1,0 +1,53 @@
+# =============================
+# DataSet Definitions Section
+# =============================
+
+# Caso 1: Conjuntos disjuntos
+A 3
+1 2 3
+B 2
+4 5
+
+# Caso 2: Conjuntos con intersección parcial
+C 4
+1 2 3 4
+D 4
+3 4 5 6
+
+# Caso 3: Conjuntos idénticos
+E 3
+7 8 9
+F 3
+7 8 9
+
+# Caso 4: Uno vacío
+G 3
+10 11 12
+H 0
+
+# Caso 5: Con duplicados en entrada
+I 5
+1 1 2 2 3
+J 4
+3 3 4 4
+
+# =============================
+# Query Section: Set Operations
+# =============================
+
+Q
+
+# Caso 1
+symmetric_difference A B
+
+# Caso 2
+symmetric_difference C D
+
+# Caso 3
+symmetric_difference E F
+
+# Caso 4
+symmetric_difference G H
+
+# Caso 5
+symmetric_difference I J
