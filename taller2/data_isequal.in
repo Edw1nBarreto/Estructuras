@@ -1,0 +1,52 @@
+# =============================
+# DataSet Definitions Section
+# =============================
+
+# Caso 1: Conjuntos iguales en orden distinto
+A 3
+1 2 3
+B 3
+3 2 1
+
+# Caso 2: Conjuntos diferentes por tamaño
+C 2
+4 5
+D 3
+4 5 6
+
+# Caso 3: Conjuntos diferentes por contenido
+E 2
+7 8
+F 2
+7 9
+
+# Caso 4: Ambos vacíos
+G 0
+H 0
+
+# Caso 5: Con duplicados en entrada
+I 4
+10 10 11 11
+J 2
+10 11
+
+# =============================
+# Query Section: Set Operations
+# =============================
+
+Q
+
+# Caso 1:
+isequal A B
+
+# Caso 2:
+isequal C D
+
+# Caso 3:
+isequal E F
+
+# Caso 4:
+isequal G H
+
+# Caso 5:
+isequal I J
