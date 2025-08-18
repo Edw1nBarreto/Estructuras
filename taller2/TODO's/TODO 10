@@ -1,0 +1,32 @@
+/**
+ * @brief Returns the power set (set of all subsets) of the current set.
+ */
+template <typename T>
+DataSet<DataSet<T>> DataSet<T>::powerSet() const {
+    DataSet<DataSet<T>> result(this->getName() + " Power Set");
+    // TODO #10: Implementar la operación conjunto potencia (powerSet)
+    // Esta función debe retornar el conjunto potencia del conjunto actual,
+    // es decir, un nuevo conjunto que contenga todos los subconjuntos posibles.
+    //
+    // El resultado debe ser de tipo DataSet<DataSet<T>>, y cada subconjunto debe
+    // representarse como una instancia de DataSet<T>. Se deben incluir el conjunto vacío
+    // y el conjunto original.
+    //
+    // No se permite modificar el conjunto original. 
+    // Se debe asegurar que los subconjuntos insertados en el resultado sean únicos.
+
+    std::vector<T> elems = this->getElements();
+    size_t n = elems.size();
+    size_t total = 1 << n; // '<<' corre bits a la izquierda
+
+    for (size_t mask = 0; mask < total; ++mask) {
+        DataSet<T> subset("");
+        for (size_t i = 0; i < n; ++i) {
+            if (mask & (1 << i)) {
+                subset.insert(elems[i]);
+            }
+        }
+        result.insert(subset);
+    }
+    return result;
+}
