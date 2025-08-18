@@ -1,1 +1,25 @@
-
+/**
+ * @brief Returns the intersection of the current set with another.
+ * @param other The set to intersect with.
+ * @return A new DataSet<T> representing the intersection.
+ */
+template <typename T>
+DataSet<T> DataSet<T>::intersectionWith(const DataSet<T> &other) const
+{
+    DataSet<T> result(this->getName() + " ∩ " + other.getName());
+    for (const T& element : this->elements)
+        {
+            if (other.contains(element)) 
+            {
+                result.insert(element);
+            }
+        }
+    // TODO #04: Implementar la operación intersección (intersectionWith)
+    // Esta función debe construir un nuevo conjunto que contenga únicamente los elementos
+    // que están presentes tanto en el conjunto actual como en el conjunto recibido.
+    //
+    // La variable `result` ya está declarada y lista para usar.
+    // No se deben modificar los conjuntos originales.
+    // El resultado debe representar correctamente A ∩ B.
+    return result;
+}
