@@ -1,0 +1,45 @@
+# =============================
+# DataSet Definitions Section
+# =============================
+
+X 5
+1 2 3 4 5
+
+Y 4
+4 5 6 7
+
+Z 3
+8 9 10
+
+# =============================
+# Query Section: Set Operations
+# =============================
+
+Q
+
+# Print sets
+print X
+print Y
+print Z
+
+# UNION (5 ejemplos)
+union X Y
+union Y X
+union X Z
+union Y Z
+union Z X
+
+# INTERSECTION (5 ejemplos)
+intersection X Y
+intersection Y X
+intersection X Z
+intersection Y Z
+intersection Z X
+
+# DIFFERENCE (5 ejemplos)
+difference X Y
+difference Y X
+difference X Z
+difference Y Z
+difference Z X
+
