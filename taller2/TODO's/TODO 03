@@ -1,1 +1,28 @@
+/**
+ * @brief Returns the union of the current set with another.
+ * @param other The set to unite with.
+ * @return A new DataSet<T> representing the union.
+ */
+template <typename T>
+DataSet<T> DataSet<T>::unionWith(const DataSet<T> &other) const
+{
+    DataSet<T> result(this->getName() + " ∪ " + other.getName());
 
+ for (const T &element : this->elements)
+     {
+         result.insert(element);
+     }
+ for (const T &element : other.elements)
+     {
+         result.insert(element);
+     }
+    
+    // TODO #03: Completar la implementación de la operación unión (unionWith)
+    // Esta función debe construir un nuevo conjunto que contenga todos los elementos 
+    // del conjunto actual y todos los elementos del conjunto recibido por parámetro,
+    // sin duplicados. El resultado debe almacenarse en la variable result ya definida.
+    //
+    // No se deben modificar las estructuras internas originales.
+    // Se espera que el resultado represente correctamente A ∪ B.
+    return result;
+}
