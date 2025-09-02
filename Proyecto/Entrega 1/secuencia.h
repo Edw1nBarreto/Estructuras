@@ -7,13 +7,13 @@ class Secuencia {
 private:
 
     std::string descripcion;
-    std::string bases;
+    std::vector<char> bases;
 
 public:
 
-    Secuencia(std::string descripcion, std::string bases);
+    Secuencia(std::string descripcion, std::vector<char> bases);
     std::string getDescripcion();
-    std::string getBases();
+    std::vector<char> getBases();
     int contarBases();
 };
 
