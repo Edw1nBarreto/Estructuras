@@ -7,15 +7,15 @@ void Sistema::cargarArchivo(std::string nombreArchivo) {
    }
 
 
-   //limpiar buffer
+   //limpiar vector de genomas
    genomas.clear();
    
    //si lo que entra en el archivo es un nuevo genoma, hay que crear un objeto genoma que se guarde 
    Genoma nuevoGenoma(nombreArchivo); 
    std::string nombreGenoma = nombreArchivo; // Asigna el nombre del genoma basado en el nombre del archivo
-   std::string linea;
+   std::string linea; //almacenar cada linea del archivo
    std::string descripcion = ""; //var temporal - contiene lo que va después de '>'
-   std::string bases = ""; //var temporal - contiene ATCGGAT....
+   std::string bases = ""; //var temporal - contiene ATCGGAT.... o sea, las bases
 
    int cantidadSecuencias = 0;
 
@@ -25,13 +25,13 @@ void Sistema::cargarArchivo(std::string nombreArchivo) {
     {
         continue; // Saltar líneas vacías aunque no deberían tener (por si)
     }
-       if (linea[0] == '>') 
+       if (linea[0] == '>') //detecta inicio de nueva secuencia, es la primera letra de la línea actual 
        {
             // Si ya había una secuencia cargando, guardarla antes de iniciar la nueva
             if (!descripcion.empty()) //esto es para si hay más de 1 secuencia ya que la primera no cuenta
             {
-                std::vector<char> vectorBases(bases.begin(), bases.end());
-                Secuencia secuencia(descripcion, vectorBases);
+                std::vector<char> vectorBases(bases.begin(), bases.end()); //convierte el string "bases" a un vector char
+                Secuencia secuencia(descripcion, vectorBases); //crea un objeto secuencia
                 nuevoGenoma.agregarSecuencia(secuencia);
                 cantidadSecuencias++;
             }
@@ -73,14 +73,15 @@ void Sistema::cargarArchivo(std::string nombreArchivo) {
     }
 
     //recorrer el vector de genomas para ir imprimiendo las secuencias cargadas
-    for(const Genoma &genoma: genomas)
+    for(std::vector<Genoma>::const_iterator itGenoma = genomas.begin(); itGenoma != genomas.end(); ++itGenoma)
     {
-        const std::vector<Secuencia> &secuencias = genoma.getSecuencias();
+        const std::vector<Secuencia> &secuencias = itGenoma->getSecuencias(); //obtiene el vector de secuencias por referencia
         int i = 1;
 
-        for(const Secuencia &secuencia: secuencias)
+        //recorrer el vector de secuencias en el genoma actual
+        for(std::vector<Secuencia>::const_iterator itSecuencia = secuencias.begin(); itSecuencia != secuencias.end(); ++itSecuencia)
         {
-            std::cout << "Secuencia #" << i++ << ": " << secuencia.getDescripcion() << std::endl;
+            std::cout << "Secuencia #" << i++ << ": " << itSecuencia->getDescripcion() << std::endl;
         }
     }
 }
