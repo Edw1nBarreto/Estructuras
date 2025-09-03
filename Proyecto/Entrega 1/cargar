@@ -1,1 +1,86 @@
+void Sistema::cargarArchivo(std::string nombreArchivo) {
+    // esto es para cargar el archivo
+   std::ifstream archivo(nombreArchivo);
+   if (!archivo.is_open()) {
+       std::cerr << nombreArchivo << " no se encuentra o no puede leerse" << std::endl;
+       return;
+   }
 
+
+   //limpiar buffer
+   genomas.clear();
+   
+   //si lo que entra en el archivo es un nuevo genoma, hay que crear un objeto genoma que se guarde 
+   Genoma nuevoGenoma(nombreArchivo); 
+   std::string nombreGenoma = nombreArchivo; // Asigna el nombre del genoma basado en el nombre del archivo
+   std::string linea;
+   std::string descripcion = ""; //var temporal - contiene lo que va después de '>'
+   std::string bases = ""; //var temporal - contiene ATCGGAT....
+
+   int cantidadSecuencias = 0;
+
+   while(std::getline(archivo, linea)) 
+   { // Procesar cada línea del archivo
+    if (linea.empty()) 
+    {
+        continue; // Saltar líneas vacías aunque no deberían tener (por si)
+    }
+       if (linea[0] == '>') 
+       {
+            // Si ya había una secuencia cargando, guardarla antes de iniciar la nueva
+            if (!descripcion.empty()) //esto es para si hay más de 1 secuencia ya que la primera no cuenta
+            {
+                std::vector<char> vectorBases(bases.begin(), bases.end());
+                Secuencia secuencia(descripcion, vectorBases);
+                nuevoGenoma.agregarSecuencia(secuencia);
+                cantidadSecuencias++;
+            }
+
+            // Nueva secuencia
+            descripcion = linea.substr(1); // Quitar '>' y guarda el nombre "Full_SEQUENCE"
+            bases = ""; // Reiniciar bases
+        } 
+        else 
+        {
+            // Agregar las bases de la linea en la que esté
+            bases += linea; //CTCCGGTGAGAAATTTT.... y esto CONCATENA, o sea, todo es la misma secuencia, las va uniendo hasta encontrar otro '>
+        } //todavía no se guarda
+    }
+
+    // Guardar última secuencia
+    if (!descripcion.empty()) //
+    {
+        std::vector<char> vectorBases(bases.begin(), bases.end());
+        Secuencia secuencia(descripcion, vectorBases); //Crea la secuencia(Full_SEQUENCE, CTCCGGTGAGAAATTTT....GAAGCTATTA)
+        nuevoGenoma.agregarSecuencia(secuencia);
+        cantidadSecuencias++;
+    }
+
+    if (cantidadSecuencias == 0) // si no encontró ningún '>'
+    {
+        std::cout<< nombreArchivo<< " no contiene ninguna secuencia."<< std::endl;
+        return;
+    }
+
+    genomas.push_back(nuevoGenoma);
+
+    if (cantidadSecuencias == 1) {
+        std::cout<< "1 secuencia cargada correctamente desde "<< nombreArchivo<< "." << std::endl;
+    } 
+    else 
+    {
+        std::cout<< cantidadSecuencias<< " secuencias cargadas correctamente desde "<< nombreArchivo<< "." << std::endl;
+    }
+
+    //recorrer el vector de genomas para ir imprimiendo las secuencias cargadas
+    for(const Genoma &genoma: genomas)
+    {
+        const std::vector<Secuencia> &secuencias = genoma.getSecuencias();
+        int i = 1;
+
+        for(const Secuencia &secuencia: secuencias)
+        {
+            std::cout << "Secuencia #" << i++ << ": " << secuencia.getDescripcion() << std::endl;
+        }
+    }
+}
