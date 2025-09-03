@@ -1,0 +1,58 @@
+void Sistema::listarSecuencias() {
+
+    if(genomas.empty())
+    {
+        std::cout<<"No hay genomas ni secuencias cargados en el sistema"<<std::endl;
+        return; // Salir de la función si no hay genomas
+    }
+
+    std::cout<<"Resultado exitoso"<<std::endl;
+
+    int totalSecuencias = 0;
+
+    for (const Genoma &genoma : genomas) 
+    {
+        totalSecuencias += genoma.getSecuencias().size();
+    }
+    //Mostrar total solo una vez
+    std::cout<< "Hay " << totalSecuencias<< " secuencias cargadas en memoria"<< std::endl;
+
+    //recorrer todos los genomas
+    for(const Genoma &genoma: genomas)
+    {
+        const std::vector<Secuencia> &secuencias = genoma.getSecuencias();
+    
+    //recorrer cada secuencia 
+    for(const Secuencia &secuencia: secuencias)
+    {
+        int totalBases = 0;
+        bool incompleta = false; //siempre serán completas de inicio
+
+        const std::vector<char> &bases = secuencia.getBases();
+
+        for(char base: bases)
+        {
+            if(base == '-')
+            {
+                incompleta = true;
+            }
+            else
+            {
+                totalBases++;
+            }
+        }
+
+        //mostrar todas las secuencias con sus totales de bases
+        if (incompleta)
+        {
+            std::cout<<"Secuencia incompleta: "<< secuencia.getDescripcion()<<" contiene al menos "<<totalBases<<" bases"<<std::endl;
+        }
+            else
+            {
+                std::cout<<"Secuencia completa: "<< secuencia.getDescripcion()<<" contiene "<<totalBases<<" bases"<<std::endl;
+            }
+        
+        }
+
+    }
+}
