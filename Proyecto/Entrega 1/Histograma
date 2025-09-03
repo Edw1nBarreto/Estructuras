@@ -1,0 +1,81 @@
+#include "sistema.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+
+void Sistema::mostrarHistograma(std::string descripcion) {
+    // Verificar si hay genomas cargados
+    if (genomas.empty()) {
+        std::cout << "No hay secuencias cargadas en memoria." << std::endl;
+        return;
+    }
+
+    bool secuenciaEncontrada = false;
+    std::vector<char> basesSecuencia;
+    std::vector<char> ordenCodigos;
+    ordenCodigos.push_back('A');
+    ordenCodigos.push_back('C');
+    ordenCodigos.push_back('G');
+    ordenCodigos.push_back('T');
+    ordenCodigos.push_back('U');
+    ordenCodigos.push_back('R');
+    ordenCodigos.push_back('Y');
+    ordenCodigos.push_back('K');
+    ordenCodigos.push_back('M');
+    ordenCodigos.push_back('S');
+    ordenCodigos.push_back('W');
+    ordenCodigos.push_back('B');
+    ordenCodigos.push_back('D');
+    ordenCodigos.push_back('H');
+    ordenCodigos.push_back('V');
+    ordenCodigos.push_back('N');
+    ordenCodigos.push_back('X');
+    ordenCodigos.push_back('-');
+
+    std::vector<int> contadores(18, 0); // Vector paralelo para el conteo (18 códigos)
+    std::vector<Genoma>::iterator itGenoma = genomas.begin();
+    for (;itGenoma != genomas.end(); ++itGenoma) 
+    {
+        std::vector<Secuencia> secuencias = itGenoma->getSecuencias();
+        std::vector<Secuencia>::iterator itSecuencia = secuencias.begin();
+        for (;itSecuencia != secuencias.end(); ++itSecuencia) 
+        {
+            if (itSecuencia->getDescripcion() == descripcion)
+            {
+                basesSecuencia = itSecuencia->getBases();
+                secuenciaEncontrada = true;
+                break;
+            }
+        }
+        if (secuenciaEncontrada) 
+            break;
+    }
+
+    if (!secuenciaEncontrada) {
+        std::cout << "Secuencia inválida." << std::endl;
+        return;
+    }
+    std::vector<char>::iterator itBase = basesSecuencia.begin();
+  
+    for (;itBase != basesSecuencia.end(); ++itBase) 
+    {
+        char base = *itBase;
+        std::vector<char>::iterator itEncontrada = ordenCodigos.begin();
+        std::vector<int>::iterator itContador = contadores.begin();
+
+        for (; itEncontrada != ordenCodigos.end(); ++itEncontrada, ++itContador) {
+            if (*itEncontrada == base) {
+                (*itContador)++;
+                break;
+            }
+        }
+    }
+
+    std::vector<char>::iterator itCodigo = ordenCodigos.begin();
+    std::vector<int>::iterator itContador = contadores.begin();
+
+    for (; itCodigo != ordenCodigos.end() && itContador != contadores.end(); 
+         ++itCodigo, ++itContador) {
+        std::cout << *itCodigo << " : " << *itContador << std::endl;
+    }
+}
