@@ -151,7 +151,6 @@ void Sistema::listarSecuencias() {
     }
 }
 
-// Implementación del comando histograma usando iteradores
 void Sistema::mostrarHistograma(std::string descripcion) {
     if (genomas.empty()) {
         std::cout << "No hay secuencias cargadas en memoria." << std::endl;
