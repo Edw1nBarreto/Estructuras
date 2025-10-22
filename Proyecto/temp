@@ -1,0 +1,2 @@
+
+g++ -std=c++17 arbolHuffman.cxx comandos.cxx genoma.cxx main.cxx nodoHuffman.cxx secuencia.cxx sistema.cxx -o main
